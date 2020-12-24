@@ -123,8 +123,8 @@ function __ash_log() {
 
 
 # Protect the functions.
-readonly -f __ash_end_session
-readonly -f __ash_log
+#readonly -f __ash_end_session
+#readonly -f __ash_log
 
 #export -f __ash_end_session
 #export -f __ash_log
