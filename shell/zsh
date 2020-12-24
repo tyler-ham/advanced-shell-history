@@ -16,7 +16,12 @@
 #
 
 # Prevent errors from sourcing this file mor than once.
-[[ -n "${ASH_SESSION_ID}" ]] && return
+if [[ -n "${ASH_SESSION_ID}" ]]; then
+  typeset +f |grep -q '__ash_'
+  if [[ $? -eq 0 ]]; then
+    return
+  fi
+fi
 
 # Make sure we are running the shell we think we are running.
 if ! ps ho command $$ | grep -q "zsh"; then
